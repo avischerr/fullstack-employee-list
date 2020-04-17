@@ -1,26 +1,33 @@
-import React from "react";
+import React, { Component } from "react";
 import exampleEmployees from "./exampleEmployees";
 import EmployeeList from "./components/EmployeeList";
 import Employee from "./components/Employee";
 import "./App.css";
 
-function App() {
-  return (
-    <div>
-      <h1>Full Stack Reps!</h1>
+class App extends Component {
+  constructor() {
+    super();
+    this.state = {};
+  }
 
-      <EmployeeList />
+  render() {
+    return (
+      <div>
+        <h1>Full Stack Reps!</h1>
 
-      {/* form to choose single employee */}
-      <form>
-        <input placeholder="Enter employee id"></input>
-        <button type="submit">Submit</button>
-      </form>
+        <EmployeeList />
 
-      {/* if an employee is selected, show that employee here */}
-      <Employee />
-    </div>
-  );
+        {/* form to choose single employee */}
+        <form>
+          <input placeholder="Enter employee id"></input>
+          <button type="submit">Submit</button>
+        </form>
+
+        {/* if an employee is selected, show that employee here */}
+        <Employee />
+      </div>
+    );
+  }
 }
 
 export default App;
