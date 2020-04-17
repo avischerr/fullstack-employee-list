@@ -2,13 +2,14 @@
 
 ## Introduction
 
-Quickly work through all major areas of the full stack so you can see it all come together: 
- - Client-side a.k.a. Frontend (React)
- - Server-side a.k.a Backend (Express, and Database (MySQL).
+Quickly work through all major areas of the full stack so you can see it all come together:
+
+- Client-side a.k.a. Frontend (React)
+- Server-side a.k.a Backend (Express, and Database (MySQL).
 
 ## Goal
 
-After completing these practice drills, you should be able to quickly build and work in any ExpressJS application. 
+After completing these practice drills, you should be able to quickly build and work in any ExpressJS application.
 
 Building a basic CRUD app should be mostly muscle memory.
 
@@ -39,8 +40,8 @@ If you run in to WEBPACK or BABEL issues please get help. This activity is not d
 
 Objectives _(read this carefully)_:
 
-- Create a server that responds to the specified restful routes
-- Each route responds back with **dummy data for now**
+- Create a server that responds to the specified RESTful routes
+- Each route should respond back with **dummy data for now**
 
 Technologies:
 
@@ -51,15 +52,15 @@ Technologies:
 
 _ROUTES (PART 1)_
 
-| METHOD | PATH           | DESCRIPTION                                  |
-| ------ | -------------- | -------------------------------------------- |
-| GET    | /employees     | respond with string "all the employees"      |
-| GET    | /employees/:id | respond with string "single employee"        |
+| METHOD | PATH               | DESCRIPTION                             |
+| ------ | ------------------ | --------------------------------------- |
+| GET    | /api/employees     | respond with string "all the employees" |
+| GET    | /api/employees/:id | respond with string "single employee"   |
 
 ## Part 2: MySQL Queries
 
 - Connect your server to your database using MySQLJS (mysql javascript)
-- Complete the Routes in the route table (use the queries.js helper functions)
+- Complete the server routes outlined in the route table below (use the queries.js helper functions)
 
 Technologies:
 
@@ -69,27 +70,26 @@ Technologies:
 
 _ROUTES:_
 
-| METHOD | PATH           | DESCRIPTION                                                |
-| ------ | -------------- | ---------------------------------------------------------- |
-| GET    | /employees     | respond with all the employees                             |
-| GET    | /employees/:id | respond with single employee, based on req.params.id        |
+| METHOD | PATH               | DESCRIPTION                                          |
+| ------ | ------------------ | ---------------------------------------------------- |
+| GET    | /api/employees     | respond with all the employees from the database     |
+| GET    | /api/employees/:id | respond with single employee, based on req.params.id |
 
 ## Part 3a: ReactJS (Using Dummy Data)
 
 In your frontend folder:
 
-**Use the given employees dummy data (exampleEmployees.js)**
+**Using the given employees dummy data (exampleEmployees.js):**
 
-- It should allow a users to do the following from their web browser:
-  - View all employees
-  - View a specific employee  
-- Use the provided React components
+- Refactor the given React code to do the following:
+  - Dynamically view all the employees (using the provided React components during rep 1 and creating your own during rep 2)
+  - Enter a user id to the form and view that selected employee
 
 ## Part 3b: ReactJS (Refactor using Data From Your Server API)
 
 In your frontend folder:
 
-**Using the your server api routes**
+**Using the employee data from your server API routes:**
 
 - Update your React app to:
   - View all employees from the server
@@ -99,23 +99,21 @@ In your frontend folder:
 
 You've already created the endpoints below, now you need to use AJAX to communicate to them and get the info you need to the client-side code:
 
-| METHOD | PATH           | DESCRIPTION                                                |
-| ------ | -------------- | ---------------------------------------------------------- |
-| GET    | /employees     | respond with all the employees                             |
-| GET    | /employees/:id | respond with single employee, based on req.params.id       |
+| METHOD | PATH               | DESCRIPTION                                          |
+| ------ | ------------------ | ---------------------------------------------------- |
+| GET    | /api/employees     | respond with all the employees                       |
+| GET    | /api/employees/:id | respond with single employee, based on req.params.id |
 
-
-
-## Part 4: Bonus - Full CRUD  
+## Part 4: Bonus - Full CRUD
 
 **(DO THIS ONLY ON THE SECOND RUN)**
 
 Handle these additional routes in your server, they should modify the database accordingly:
 
-| METHOD | PATH           | DESCRIPTION                                 |
-| ------ | -------------- | ------------------------------------------- |
-| POST   | /employees     | inserts new employeee record from req.body  |
-| PATCH  | /employees/:id | update an employee record from req.body     |
-| DELETE | /employees/:id | delete an employee record                   |
+| METHOD | PATH               | DESCRIPTION                                |
+| ------ | ------------------ | ------------------------------------------ |
+| POST   | /api/employees     | inserts new employeee record from req.body |
+| PATCH  | /api/employees/:id | update an employee record from req.body    |
+| DELETE | /api/employees/:id | delete an employee record                  |
 
-Create the appropriate interface in your React app so that users can make AJAX (e.g. Axios, Fetch, $.Ajax, etc) requests to the routes above and then see the changes render in their web browser.
+Create the appropriate interface in your React app so that users can make AJAX (e.g. Axios, Fetch, \$.Ajax, etc) requests to the routes above and then see the changes render in their web browser.

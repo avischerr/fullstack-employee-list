@@ -1,24 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import exampleEmployees from "./exampleEmployees";
+import EmployeeList from "./components/EmployeeList";
+import Employee from "./components/Employee";
+import "./App.css";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Full Stack Reps!</h1>
+
+      <EmployeeList />
+
+      {/* form to choose single employee */}
+      <form>
+        <input placeholder="Enter employee id"></input>
+        <button type="submit">Submit</button>
+      </form>
+
+      {/* if an employee is selected, show that employee here */}
+      <Employee />
     </div>
   );
 }

@@ -1,10 +1,14 @@
 -- ATTN WINDOWS USERS: Some of you might have an easier time just copying and pasting the lines below in to your mysql shell
 
-DROP DATABASE IF EXISTS fullstackdrill;
+-- to import this file from 
+--  1) the command line run mysql -u <user> -p < <path to file>
+--  2) the mysql command line client run source <absolute file path> 
 
-CREATE DATABASE fullstackdrill;
+DROP DATABASE IF EXISTS fullstackreps;
 
-USE fullstackdrill;
+CREATE DATABASE fullstackreps;
+
+USE fullstackreps;
 
 CREATE TABLE IF NOT EXISTS employees (
   id integer AUTO_INCREMENT UNIQUE PRIMARY KEY,

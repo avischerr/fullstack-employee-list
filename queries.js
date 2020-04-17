@@ -1,15 +1,19 @@
 const mysql = require("mysql");
 const connection = mysql.createConnection({
   host: "localhost",
-  user: "me",
-  password: "secret",
-  database: "my_db"
+  user: "student",
+  password: "student",
+  database: "fullstackreps",
 });
 
 connection.connect();
 
-const retrieveAllEmployees = cb => {
-  connection.query("SELECT * FROM employees", function(error, results, fields) {
+const retrieveAllEmployees = (cb) => {
+  connection.query("SELECT * FROM employees", function (
+    error,
+    results,
+    fields
+  ) {
     if (error) {
       cb(error, null);
     } else {
@@ -19,5 +23,5 @@ const retrieveAllEmployees = cb => {
 };
 
 module.exports = {
-  retrieveAllEmployees
+  retrieveAllEmployees,
 };
