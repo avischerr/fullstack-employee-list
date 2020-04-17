@@ -83,7 +83,7 @@ In your frontend folder:
 - It should allow a users to do the following from their web browser:
   - View all employees
   - View a specific employee  
-- You can create as many React components as you want
+- Use the provided React components
 
 ## Part 3b: ReactJS (Refactor using Data From Your Server API)
 
