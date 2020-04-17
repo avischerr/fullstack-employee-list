@@ -74,22 +74,37 @@ _ROUTES:_
 | GET    | /employees     | respond with all the employees                             |
 | GET    | /employees/:id | respond with single employee, based on req.params.id        |
 
-## Part 3: ReactJS
+## Part 3a: ReactJS (Using Dummy Data)
 
 In your frontend folder:
 
+**Use the given employees dummy data (exampleEmployees.js)**
+
 - It should allow a users to do the following from their web browser:
+  - View all employees
+  - View a specific employee  
+- You can create as many React components as you want
+
+## Part 3b: ReactJS (Refactor using Data From Your Server API)
+
+In your frontend folder:
+
+**Using the your server api routes**
+
+- Update your React app to:
   - View all employees from the server
   - View a specific employee from the server
-- You will need to use AJAX (Fetch, Axios, etc) to allow your client side code to talk to your server.
-- You can create as many React components as you want
+
+**HINT: You will need to use AJAX (Fetch, Axios, etc) to allow your client side code to talk to your server.**
 
 You've already created the endpoints below, now you need to use AJAX to communicate to them and get the info you need to the client-side code:
 
 | METHOD | PATH           | DESCRIPTION                                                |
 | ------ | -------------- | ---------------------------------------------------------- |
 | GET    | /employees     | respond with all the employees                             |
-| GET    | /employees/:id | respond with single employee, based on req.params.id        |
+| GET    | /employees/:id | respond with single employee, based on req.params.id       |
+
+
 
 ## Part 4: Bonus - Full CRUD  
 
