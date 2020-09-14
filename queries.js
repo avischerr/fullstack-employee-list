@@ -1,8 +1,8 @@
 const mysql = require("mysql");
 const connection = mysql.createConnection({
   host: "localhost",
-  user: "student",
-  password: "student",
+  user: "root",
+  password: "",
   database: "fullstackreps",
 });
 
@@ -22,6 +22,23 @@ const retrieveAllEmployees = (cb) => {
   });
 };
 
+
+const retrieveSingleEmployee = (cb, req, id) => {
+  var requestedId = req.params.id;
+  connection.query("SELECT * from employees where employees.id = $requestedId", function (
+    error,
+    results,
+    fields
+    ) {
+      if (error) {
+        cb(error, null);
+      } else {
+        cb(null, results);
+      }
+  });
+};
+
 module.exports = {
   retrieveAllEmployees,
+  retrieveSingleEmployee
 };
