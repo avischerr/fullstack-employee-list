@@ -25,7 +25,7 @@ const retrieveAllEmployees = (cb) => {
 
 const retrieveSingleEmployee = (cb, req, id) => {
   var requestedId = req.params.id;
-  connection.query("SELECT * from employees where employees.id = $requestedId", function (
+  connection.query(`SELECT * from employees where employees.id = ${requestedId}`, function (
     error,
     results,
     fields
