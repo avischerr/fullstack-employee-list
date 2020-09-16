@@ -23,13 +23,20 @@ const retrieveAllEmployees = (cb) => {
 };
 
 
-const retrieveSingleEmployee = (cb, req, id) => {
-  var requestedId = req.params.id;
-  connection.query(`SELECT * from employees where employees.id = ${requestedId}`, function (
-    error,
-    results,
-    fields
-    ) {
+// const retrieveSingleEmployee = (cb, req, id) => {
+//   console.log(req.params.id);
+//   var requestedId = req.params.id;
+//   connection.query(`SELECT * from employees where id = ${requestedId}`, function (error, results) {
+//       if (error) {
+//         cb(error, null);
+//       } else {
+//         cb(null, results);
+//       }
+//   });
+// };
+
+const retrieveSingleEmployee = (cb, requestedId) => {
+  connection.query(`SELECT * from employees where id = ${requestedId}`, function (error, results) {
       if (error) {
         cb(error, null);
       } else {

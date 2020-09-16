@@ -2,12 +2,31 @@ import React, { Component } from "react";
 import exampleEmployees from "./exampleEmployees";
 import EmployeeList from "./components/EmployeeList";
 import Employee from "./components/Employee";
+import Axios from "axios";
 import "./App.css";
 
 class App extends Component {
   constructor() {
     super();
-    this.state = {};
+    this.state = {
+      employees: {}
+    };
+  }
+
+  componentDidMount() {
+    this.getOneEmployee();
+  };
+
+  getOneEmployee () {
+    Axios.get("/api/employees")
+      .then(res => {
+        this.setState({employees: res.data}, () => {
+          console.log(this.state.employees);
+        });
+      })
+      .catch(err => {
+        console.error(err);
+      })
   }
 
   render() {
@@ -24,7 +43,7 @@ class App extends Component {
         </form>
 
         {/* if an employee is selected, show that employee here */}
-        <Employee />
+        <Employee employees={this.state.employees}/>
       </div>
     );
   }
