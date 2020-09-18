@@ -2,17 +2,14 @@ import React from "react";
 // import data from "../exampleEmployees";
 // import App from "../App";
 
-const Employee = () => (
-  <div>
-    {/* {this.state.employee.map((person) => (
-      <div>
-        <h3>{person.first_name}</h3>
-        <p>{person.city}</p>
-      </div>
-    ))} */}
-    <h3>Nik Mentakis</h3>
-    <p>Austin</p>
-  </div>
-);
+const Employee = (props) => {
+  console.log(props);
+  return (
+    <div>
+      <h3>{props.employee.first_name}</h3>
+      <p>{props.employee.city}</p>
+    </div>
+  );
+};
 
 export default Employee;
