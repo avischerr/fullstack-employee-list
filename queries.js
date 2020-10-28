@@ -1,6 +1,6 @@
 const mysql = require("mysql");
 const connection = mysql.createConnection({
-  host: "127.0.0.1",
+  host: "localhost",
   user: "root",
   password: "",
   database: "fullstackreps",
@@ -21,19 +21,6 @@ const retrieveAllEmployees = (cb) => {
     }
   });
 };
-
-
-// const retrieveSingleEmployee = (cb, req, id) => {
-//   console.log(req.params.id);
-//   var requestedId = req.params.id;
-//   connection.query(`SELECT * from employees where id = ${requestedId}`, function (error, results) {
-//       if (error) {
-//         cb(error, null);
-//       } else {
-//         cb(null, results);
-//       }
-//   });
-// };
 
 const retrieveSingleEmployee = (requestedId, cb) => {
   connection.query(`SELECT * from employees where id = ${requestedId}`, function (error, results) {

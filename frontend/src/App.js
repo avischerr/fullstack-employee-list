@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-// import exampleEmployees from "./exampleEmployees";
 import EmployeeList from "./components/EmployeeList";
 import Employee from "./components/Employee";
 import Axios from "axios";
@@ -10,14 +9,17 @@ class App extends Component {
     super();
     this.state = {
       employees: [],
-      employee: {},
+      employee: {
+        id: 1,
+        first_name: "Nik",
+        last_name: "Mentakis",
+        city: "Austin"
+      },
       inputID: ''
     };
     this.getAllEmployees = this.getAllEmployees.bind(this);
-    this.getAllEmployees = this.getOneEmployee.bind(this);
+    this.getOneEmployee = this.getOneEmployee.bind(this);
     this.handleChange = this.handleChange.bind(this);
-    this.handleClick = this.handleClick.bind(this);
-    // this.fetchEmployees = this.fetchEmployees.bind(this);
   }
 
   componentDidMount() {
@@ -25,8 +27,9 @@ class App extends Component {
   };
 
   getAllEmployees () {
-    Axios.get("http://localhost:3000/api/employees")
-      .then(res => {
+    Axios.get("http://localhost:1128/api/employees")
+      .then((res) => {
+        console.log('res.data: ', res.data);
         this.setState({employees: res.data}, () => {
           console.log("in getallemployees: ", this.state.employees);
         });
@@ -36,11 +39,12 @@ class App extends Component {
       })
   }
 
-  getOneEmployee () {
+  getOneEmployee (event) {
+    event.preventDefault();
     let id = this.state.inputID;
     console.log("id in getOneEmployee: ", id);
-    Axios.get(`http://localhost:3000/api/employees/${id}`)
-      .then(res => {
+    Axios.get(`http://localhost:1128/api/employees/${id}`)
+      .then((res) => {
         this.setState({employee: res.data[id - 1]}, () => {
           console.log("this.state.employee: ", this.state.employee);
           console.log("res.data in getoneemployee: ", res.data)
@@ -51,27 +55,12 @@ class App extends Component {
       })
   }
 
-  // fetchEmployees () {
-  //   fetch('/api/employees')
-  //     .then(data => {
-  //       console.log("here's our data: ", data)
-  //     })
-  //     .catch(err => {
-  //       console.error(err)
-  //     })
-  // }
-
   handleChange (event) {
     event.preventDefault();
     var id = event.target.value;
     this.setState({inputID: id});
     console.log("id:", id);
-    console.log("inputID:", this.state.inputID);
-  }
-
-  handleClick (click) {
-    click.preventDefault();
-    this.getOneEmployee();
+    // console.log("inputID:", this.state.inputID);
   }
 
   render() {
@@ -79,7 +68,10 @@ class App extends Component {
       <div>
         <h1>Full Stack Reps!</h1>
 
-        <EmployeeList employees={this.state.employees}/>
+        <EmployeeList
+          employee={this.state.employee}
+          employees={this.state.employees}
+        />
         {this.state.employees.map((person) => (
           <div>
             <h3>{person.first_name}</h3>
@@ -89,8 +81,12 @@ class App extends Component {
 
         {/* form to choose single employee */}
         <form>
-          <input placeholder="Enter employee id" onChange={this.handleChange} value={this.state.inputID}></input>
-          <button type="submit" onClick={this.handleClick}>Submit</button>
+          <input
+            placeholder="Enter employee id"
+            onChange={this.handleChange}
+            value={this.state.inputID}
+          ></input>
+          <button type="submit" onClick={this.getOneEmployee}>Submit</button>
         </form>
 
 
